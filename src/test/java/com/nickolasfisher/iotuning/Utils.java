@@ -29,6 +29,12 @@ public class Utils {
         writeCsvFile(Utils.numberOfNewLines_inSmallCsv, csvPathAsPath);
     }
 
+    @BeforeClass
+    public static void setupLargeCsv() throws Exception {
+        Path pathToLargeCsv = Paths.get(Utils.largeCsvFilePath);
+        writeCsvFile(Utils.numberOfNewLines_inLargeCsv, pathToLargeCsv);
+    }
+
     private static void writeCsvFile(int numOfLinesToWrite, Path filePath) throws IOException {
         // run once to create the sample data we need for testing
         String csvDataToWrite = getCsv(numberOfNewLines_inSmallCsv);
@@ -45,12 +51,6 @@ public class Utils {
         }
 
         return builder.toString();
-    }
-
-    @BeforeClass
-    public static void setupLargeCsv() throws Exception {
-        Path pathToLargeCsv = Paths.get(Utils.largeCsvFilePath);
-        writeCsvFile(Utils.numberOfNewLines_inLargeCsv, pathToLargeCsv);
     }
 
     public static void runBenchmark(Class clazz) throws Exception {

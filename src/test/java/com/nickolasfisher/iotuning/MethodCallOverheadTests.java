@@ -14,7 +14,7 @@ public class MethodCallOverheadTests {
     public void launchBenchmark() throws Exception {
         Utils.runBenchmark(this.getClass());
     }
-    
+
     @Benchmark
     public void readEachCharacterUnderTheHood() throws Exception {
         try (FileInputStream fileInputStream = new FileInputStream(Utils.smallCsvFilePath);

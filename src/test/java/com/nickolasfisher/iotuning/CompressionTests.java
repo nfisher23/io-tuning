@@ -69,11 +69,9 @@ public class CompressionTests {
         try (FileInputStream fileInputStream = new FileInputStream(path);
              ZipInputStream zipInputStream = new ZipInputStream(fileInputStream)) {
             zipInputStream.getNextEntry();
-            int BUFF_SIZE = (int) new File(path).length();
-            byte[] buffered = new byte[BUFF_SIZE];
+            byte[] buffered = new byte[NUMBER_OF_CSV_LINES * 20];
             zipInputStream.read(buffered);
             return new String(buffered);
         }
-
     }
 }
